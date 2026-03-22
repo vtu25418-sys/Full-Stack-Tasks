@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Registration Form</h2>
+
+    <form action="/register" method="post">
+
+        <label>Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
+
+        <label>Department:</label>
+        <select name="department" required>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+        </select>
+
+        <label>Phone:</label>
+        <input type="text" name="phone" required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <br>
+    <a href="/students">View All Students</a>
+
+</div>
+
+</body>
+</html>
