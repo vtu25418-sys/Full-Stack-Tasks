@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Secure Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            width: 300px;
+            border-radius: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Login</h2>
+    <div id="message"></div>
+
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let message = document.getElementById("message");
+
+    if(email === "" || password === "") {
+        message.innerHTML = "<p class='error'>All fields are required</p>";
+        return;
+    }
+
+    fetch("login.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "email=" + email + "&password=" + password
+    })
+    .then(response => response.text())
+    .then(data => {
+        if(data === "success") {
+            window.location.href = "dashboard.php";
+        } else {
+            message.innerHTML = "<p class='error'>Invalid Email or Password</p>";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
