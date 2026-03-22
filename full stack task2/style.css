@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+    background-color: #f4f6f8;
+}
+
+h1 {
+    text-align: center;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+select {
+    margin-right: 20px;
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+ul {
+    background: white;
+    padding: 10px;
+}
